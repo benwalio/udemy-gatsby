@@ -5,47 +5,97 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql, Link } from "gatsby";
+import "../styles/layout.css";
+import {
+  Main,
+  NavLink,
+  Brand,
+  BrandLink,
+  BrandInk,
+  NavLinks,
+  Header,
+} from "../styles/styledTest";
 
-import Header from "./header"
-import "./layout.css"
+import "./layout.css";
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+// const Main = styled.main`
+//   max-width: 800px;
+//   margin: 0 auto;
+// `
+
+export const NavlinkQuery = graphql`
+  {
+    prismic {
+      allAppnavbars {
+        edges {
+          node {
+            navigation_links {
+              link {
+                _linkType
+                ... on PRISMIC_Page {
+                  _meta {
+                    uid
+                  }
+                }
+              }
+              label
+            }
+            branding
+            brand_ink
+          }
         }
       }
     }
-  `)
+  }
+`;
 
+const Layout = ({ children }) => {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Header>
+        <StaticQuery
+          query={`${NavlinkQuery}`}
+          render={(data) => {
+            return (
+              <>
+                <Brand>
+                  <BrandLink>
+                    <Link to="/">
+                      {data.prismic.allAppnavbars.edges[0].node.branding}
+                    </Link>
+                  </BrandLink>
+                  <BrandInk>
+                      {data.prismic.allAppnavbars.edges[0].node.brand_ink}
+                    </BrandInk>
+                </Brand>
+                <NavLinks>
+                  {data.prismic.allAppnavbars.edges[0].node.navigation_links.map(
+                    (link) => {
+                      return (
+                        <NavLink key={link.link._meta.uid}>
+                          <Link to={`/${link.link._meta.uid}`}>
+                            {link.label}
+                          </Link>
+                        </NavLink>
+                      );
+                    }
+                  )}
+                </NavLinks>
+              </>
+            );
+          }}
+        />
+      </Header>
+      <Main>{children}</Main>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

@@ -5,10 +5,17 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
-        repositoryName: 'benwal-brill-landing'
+        repositoryName: 'benwal-brill-landing',
+        pages: [{
+          type: 'Page',
+          match: '/:uid',
+          path: '/',
+          component: require.resolve('./src/templates/Page.js')
+        }]
       }
     },
     `gatsby-plugin-react-helmet`,
