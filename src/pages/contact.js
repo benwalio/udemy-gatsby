@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import { Form, FormSubmit } from "../styles/styledTest";
+import { Form, FormSubmit, SectionTitle, SectionContent } from "../styles/styledTest";
 
 export const query = graphql`
   {
@@ -14,6 +14,8 @@ export const query = graphql`
               name
               required
             }
+            form_title
+            form_description
           }
         }
       }
@@ -22,10 +24,13 @@ export const query = graphql`
 `;
 
 function Contact(props) {
+    const formNode = props.data.prismic.allContact_pages.edges[0].node;
   return (
     <Layout>
+    <SectionTitle render={formNode.form_title} />
+    <SectionContent render = {formNode.form_description} />
       <Form onSubmit={(e) => e.preventDefault}>
-        {props.data.prismic.allContact_pages.edges[0].node.form_fields.map(
+        {formNode.form_fields.map(
           (field, idx) => {
             if (field.field_type === "textarea") {
               return (

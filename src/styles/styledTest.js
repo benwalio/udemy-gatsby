@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RichText } from "prismic-reactjs";
+import RichTextCustom from "../components/richText";
 
 export const Main = styled.main`
   margin: 0 auto;
@@ -84,7 +84,7 @@ export const PriceBlockWrapper = styled.div`
     
 `
 
-export const SectionTitle = styled(RichText)`
+export const SectionTitle = styled(RichTextCustom)`
 
 `
 
@@ -92,7 +92,7 @@ export const PricingTitle = styled(SectionTitle)`
     margin-top: 2rem;
 `
 
-export const SectionContent = styled(RichText)`
+export const SectionContent = styled(RichTextCustom)`
 
 `
 
@@ -109,11 +109,11 @@ export const CallToActionText = styled.div`
 
 `
 
-export const CallToActionTitle = styled(RichText)`
+export const CallToActionTitle = styled(RichTextCustom)`
 
 `
 
-export const CallToActionContent = styled(RichText)`
+export const CallToActionContent = styled(RichTextCustom)`
 
 `
 
