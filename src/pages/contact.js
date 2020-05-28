@@ -1,7 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import { Form, FormSubmit, SectionTitle, SectionContent } from "../styles/styledTest";
+import {
+  Form,
+  FormSubmit,
+  SectionTitle,
+  SectionContent,
+  ContactWrapper
+} from "../styles/styledTest";
 
 export const query = graphql`
   {
@@ -24,14 +30,20 @@ export const query = graphql`
 `;
 
 function Contact(props) {
-    const formNode = props.data.prismic.allContact_pages.edges[0].node;
+  const formNode = props.data.prismic.allContact_pages.edges[0].node;
   return (
     <Layout>
-    <SectionTitle render={formNode.form_title} />
-    <SectionContent render = {formNode.form_description} />
-      <Form onSubmit={(e) => e.preventDefault}>
-        {formNode.form_fields.map(
-          (field, idx) => {
+      <ContactWrapper>
+        <SectionTitle render={formNode.form_title} />
+        <SectionContent render={formNode.form_description} />
+        <Form 
+        name='contact'
+        method='POST'
+        data-netlify='true'
+        action='contact-success'
+        onSubmit={(e) => e.preventDefault}>
+        <input type="hidden" name='hidden-input' value='contact' />
+          {formNode.form_fields.map((field, idx) => {
             if (field.field_type === "textarea") {
               return (
                 <div key={idx}>
@@ -52,10 +64,10 @@ function Contact(props) {
                 </div>
               );
             }
-          }
-        )}
-        <FormSubmit type="submit">submit</FormSubmit>
-      </Form>
+          })}
+          <FormSubmit type="submit">submit</FormSubmit>
+        </Form>
+      </ContactWrapper>
     </Layout>
   );
 }

@@ -205,6 +205,25 @@ export const Form = styled.form`
     max-width: 80vw;
     margin-left: auto;
     margin-right: auto;
+
+    input {
+        margin-bottom: 1rem;
+        border-radius: .5rem;
+        height: 3rem;
+        border: 1px solid lightgray;
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    textarea {
+        margin-bottom: 1rem;
+        border-radius: .5rem;
+        border: 1px solid lightgray;
+        padding: 1rem 2rem;
+        width: 100%;
+        height: 10rem;
+        resize: none;
+    }
 `
 
 export const FormSubmit = styled.button`
@@ -215,4 +234,14 @@ export const FormSubmit = styled.button`
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     border: none;
     border-radius: .3rem;
+`
+
+export const PageWrapper = styled.section`
+    max-width: 80vw;
+    margin: 1rem auto;
+`
+
+export const ContactWrapper = styled.section`
+    max-width: 80vw;
+    margin: 1rem auto;
 `

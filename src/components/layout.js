@@ -27,29 +27,33 @@ import "./layout.css";
 // `
 
 export const NavlinkQuery = graphql`
-  {
-    prismic {
-      allAppnavbars {
-        edges {
-          node {
-            navigation_links {
-              link {
-                _linkType
-                ... on PRISMIC_Page {
-                  _meta {
-                    uid
-                  }
+{
+  prismic {
+    allAppnavbars {
+      edges {
+        node {
+          navigation_links {
+            link {
+              ... on PRISMIC_Page {
+                _meta {
+                  uid
                 }
               }
-              label
+              ... on PRISMIC_Contact_page {
+                _meta {
+                  uid
+                }
+              }
             }
-            branding
-            brand_ink
+            label
           }
+          brand_ink
+          branding
         }
       }
     }
   }
+}
 `;
 
 const Layout = ({ children }) => {
