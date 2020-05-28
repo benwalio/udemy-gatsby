@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RichText } from "prismic-reactjs";
 
 export const Main = styled.main`
   margin: 0 auto;
@@ -21,6 +22,35 @@ export const HeroWrapper = styled.section`
         color: white;
         text-shadow: 2px 2px 4px black;
     }
+`
+
+export const CallToActionGridWrapper = styled.section`
+    max-width: 800px;
+    margin: 2rem auto;
+`
+
+export const CallToActionGridTitle = styled(RichText)`
+
+`
+
+export const CallToActionWrapper = styled.section`
+    background: lightgray;
+    border-radius: 5px;
+    padding: 2rem;
+    margin: auto 2rem;
+    display: flex;
+`
+
+export const CallToActionText = styled.div`
+
+`
+
+export const CallToActionTitle = styled(RichText)`
+
+`
+
+export const CallToActionContent = styled(RichText)`
+
 `
 
 export const NavLinks = styled.div`
