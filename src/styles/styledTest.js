@@ -17,7 +17,7 @@ export const HeroWrapper = styled.section`
     justify-content: center;
     
     div {
-        max-width: 800px;
+        max-width: 80vw;
         margin: 0 auto;
         color: white;
         text-shadow: 2px 2px 4px black;
@@ -25,11 +25,74 @@ export const HeroWrapper = styled.section`
 `
 
 export const CallToActionGridWrapper = styled.section`
-    max-width: 800px;
+    max-width: 80vw;
     margin: 2rem auto;
 `
 
-export const CallToActionGridTitle = styled(RichText)`
+export const PriceGridWrapper = styled.section`
+    max-width: 80vw;
+    margin: 2rem auto;
+    >div:last-child {
+        display: flex;
+    }
+`
+
+export const PriceBlockWrapper = styled.div`
+    flex-grow:1;
+    flex-basis: 0;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: ${props => props.tag === 'most popular' ? 'orange' : props.tag === 'most scalable' ? 'darkturquoise' : 'lightgray'};
+    color: ${props => props.tag === 'most popular' ? 'navy' : 'black'};
+    padding: 1rem;
+    position: relative;
+
+    .tag {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: .5rem;
+        font-weight: bold;
+    }
+
+    .popular {
+        background-color: green;
+        color: white;
+    }
+
+    .scalable {
+        background-color: darkblue;
+        color: white;
+    }
+
+    .description {
+
+    }
+
+    .price {
+        text-align: center;
+        font-size: 3rem;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        margin: .5rem -1rem;
+
+        .duration {
+            font-size: 1.2rem;
+        }
+    }
+    
+`
+
+export const SectionTitle = styled(RichText)`
+
+`
+
+export const PricingTitle = styled(SectionTitle)`
+    margin-top: 2rem;
+`
+
+export const SectionContent = styled(RichText)`
 
 `
 
