@@ -197,3 +197,22 @@ export const Button = styled.div`
         text-shadow: 1px 1px 1px black;
     }
 `
+
+export const Form = styled.form`
+    padding: 1rem;
+    background-color: lightgray;
+    margin-top: 2rem;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+`
+
+export const FormSubmit = styled.button`
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    padding: .5rem 1.3rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: .3rem;
+`
