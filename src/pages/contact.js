@@ -6,7 +6,7 @@ import {
   FormSubmit,
   SectionTitle,
   SectionContent,
-  ContactWrapper
+  ContactWrapper,
 } from "../styles/styledTest";
 
 export const query = graphql`
@@ -36,13 +36,13 @@ function Contact(props) {
       <ContactWrapper>
         <SectionTitle render={formNode.form_title} />
         <SectionContent render={formNode.form_description} />
-        <Form 
-        name='contact'
-        method='POST'
-        data-netlify='true'
-        action='contact-success'
-        onSubmit={(e) => e.preventDefault}>
-        <input type="hidden" name='hidden-input' value='contact' />
+        <Form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="contact-success"
+        >
+          <input type="hidden" name="hidden-input" value="contact" />
           {formNode.form_fields.map((field, idx) => {
             if (field.field_type === "textarea") {
               return (
