@@ -4,7 +4,10 @@ import {
   CallToActionWrapper,
   CallToActionContent,
   CallToActionTitle,
+  Button,
+  CallToActionImage
 } from "../styles/styledTest";
+import { Link } from "gatsby";
 
 function CallToAction(props) {
   return (
@@ -12,8 +15,11 @@ function CallToAction(props) {
       <CallToActionText>
         <CallToActionTitle render={props.title} />
         <CallToActionContent render={props.content} />
+        <Button>
+          <Link to={props.buttonDest}>{props.buttonTitle}</Link>
+        </Button>
       </CallToActionText>
-      <img src={props.img.url} alt={props.img.alt} />
+      <CallToActionImage src={props.img.url} alt={props.img.alt} />
     </CallToActionWrapper>
   );
 }

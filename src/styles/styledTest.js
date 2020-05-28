@@ -35,10 +35,11 @@ export const CallToActionGridTitle = styled(RichText)`
 
 export const CallToActionWrapper = styled.section`
     background: lightgray;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 2rem;
-    margin: auto 2rem;
+    margin: 2rem 0;
     display: flex;
+    justify-content: center;
 `
 
 export const CallToActionText = styled.div`
@@ -51,6 +52,12 @@ export const CallToActionTitle = styled(RichText)`
 
 export const CallToActionContent = styled(RichText)`
 
+`
+
+export const CallToActionImage = styled.img`
+    max-width: 10rem;
+    margin: 0 2rem;
+    border-radius: 10px;
 `
 
 export const NavLinks = styled.div`
@@ -113,3 +120,17 @@ export const Header = styled.header`
   padding: 0 2rem;
   box-sizing: border-box;
 `;
+
+export const Button = styled.div`
+    background-color: orange;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    a {
+        color: white;
+        padding: 0.5rem 1.3rem;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px black;
+    }
+`
