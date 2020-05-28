@@ -9,7 +9,7 @@ function sliceZone(props) {
         <>
             {body.map((bodyContent, idx) => {
                 if (bodyContent.type === 'hero') {
-                    return <Hero key={idx} title={bodyContent.primary.hero_title} content={bodyContent.primary.hero_content} />
+                    return <Hero key={idx} title={bodyContent.primary.hero_title} content={bodyContent.primary.hero_content} img={bodyContent.primary.hero_image.url} />
                 }
             })}
         </>

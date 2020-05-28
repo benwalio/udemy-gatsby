@@ -1,9 +1,27 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  max-width: 800px;
   margin: 0 auto;
 `;
+
+export const HeroWrapper = styled.section`
+    background-image: url('${props => props.img}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 3rem);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    div {
+        max-width: 800px;
+        margin: 0 auto;
+        color: white;
+        text-shadow: 2px 2px 4px black;
+    }
+`
 
 export const NavLinks = styled.div`
   margin-left: auto;
