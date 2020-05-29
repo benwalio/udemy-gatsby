@@ -39,7 +39,7 @@ function Contact(props) {
         <Form
           name="contact"
           method="POST"
-          data-netlify="true"
+          data-netlify='true'
           action="contact-success"
         >
           <input type="hidden" name="hidden-input" value="contact" />
