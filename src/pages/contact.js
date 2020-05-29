@@ -48,6 +48,7 @@ function Contact(props) {
               return (
                 <div key={idx}>
                   <textarea
+                    name={field.name}
                     required={field.required === "yes"}
                     placeholder={field.name}
                   />
@@ -57,6 +58,7 @@ function Contact(props) {
               return (
                 <div key={idx}>
                   <input
+                    name={field.name}
                     placeholder={field.name}
                     required={field.required === "yes"}
                     type={field.field_type}

@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 import Layout from "../components/layout";
 import SliceZone from "../components/sliceZone";
-import { PageWrapper } from '../styles/styledTest'
+import { PageWrapper } from "../styles/styledTest";
 
 export const query = graphql`
   query PageQuery($id: String) {
@@ -18,6 +18,7 @@ export const query = graphql`
             body {
               ... on PRISMIC_PageBodyCall_to_action_grid {
                 type
+                label
                 primary {
                   section_title
                 }
@@ -45,7 +46,12 @@ export const query = graphql`
   }
 `;
 
-const Page = (props) => {
+function Page(props) {
+  if (props.data.prismic.allPages.edges[0] === undefined) {
+    return null;
+  } else {
+
+
   const pageTitle = props.data.prismic.allPages.edges[0].node.page_title;
   const pageContent = props.data.prismic.allPages.edges[0].node.content;
   return (
@@ -58,7 +64,7 @@ const Page = (props) => {
         )}
       </PageWrapper>
     </Layout>
-  );
-};
+  )};
+}
 
 export default Page;
